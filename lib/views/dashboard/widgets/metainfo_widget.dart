@@ -33,18 +33,18 @@ class MetainfoWidget extends ConsumerWidget {
             },
           );
         },
-        child: const Center(
+        child: Center(
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 24.0),
+            padding: const EdgeInsets.symmetric(vertical: 24.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
+                const Icon(
                   Icons.add_circle_outline,
                   size: 48,
                 ),
-                SizedBox(height: 8),
-                Text("Добавить профиль"),
+                const SizedBox(height: 8),
+                Text(appLocalizations.addProfile),
               ],
             ),
           ),

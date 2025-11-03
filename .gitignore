@@ -36,6 +36,7 @@ migrate_working_dir/
 /dist/
 /android/core/.cxx/
 /service/
+
 # Symbolication related
 app.*.symbols
 
@@ -47,6 +48,8 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+# Helper
+/services/helper/target/
 #libclash
 /libclash/
 
