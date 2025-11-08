@@ -463,13 +463,8 @@ class BuildCommand extends Command {
       ].join(','),
       help: 'The $name build env',
     );
-    if (target == Target.android) {
-      argParser.addFlag(
-        "universal",
-        defaultsTo: true,
-        help: 'Build universal APK in addition to split APKs',
-      );
-    }
+    // Android builds always create both split and universal APKs
+    // No additional flags needed
   }
 
   @override
@@ -685,45 +680,29 @@ class BuildCommand extends Command {
         );
         return;
       case Target.android:
-        final targetMap = {
-          Arch.arm: "android-arm",
-          Arch.arm64: "android-arm64",
-          Arch.amd64: "android-x64",
-        };
-        final defaultArches = [Arch.arm, Arch.arm64, Arch.amd64];
-        final defaultTargets = defaultArches
-            .where((element) => arch == null ? true : element == arch)
-            .map((e) => targetMap[e])
-            .toList();
-        final universal = argResults?["universal"] ?? false;
+        // Build all architectures: armeabi-v7a, arm64-v8a, x86_64
+        final allTargets = "android-arm,android-arm64,android-x64";
         
-        if (universal) {
-          await _buildDistributor(
-            target: target,
-            targets: "apk",
-            args:
-                ",split-per-abi --build-target-platform ${defaultTargets.join(",")}",
-            env: env,
-            coreVersion: coreVersion,
-          );
-          await _buildDistributor(
-            target: target,
-            targets: "apk",
-            args:
-                " --build-target-platform ${defaultTargets.join(",")}",
-            env: env,
-            coreVersion: coreVersion,
-          );
-        } else {
-          await _buildDistributor(
-            target: target,
-            targets: "apk",
-            args:
-                ",split-per-abi --build-target-platform ${defaultTargets.join(",")}",
-            env: env,
-            coreVersion: coreVersion,
-          );
-        }
+        // Build split APKs (one per architecture)
+        await _buildDistributor(
+          target: target,
+          targets: "apk",
+          args:
+              ",split-per-abi --build-target-platform $allTargets",
+          env: env,
+          coreVersion: coreVersion,
+        );
+        
+        // Build universal APK (all architectures in one file)
+        await _buildDistributor(
+          target: target,
+          targets: "apk",
+          args:
+              " --build-target-platform $allTargets",
+          env: env,
+          coreVersion: coreVersion,
+        );
+        
         return;
       case Target.macos:
         await _getMacosDependencies();
