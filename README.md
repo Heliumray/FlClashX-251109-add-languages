@@ -1,7 +1,7 @@
 ## Other Languages
 [**🇷🇺 Russian / Русский**](README_RU.md)  
-[**🇯🇵 日本語**](README_JP.md)  
-[**🇨🇳 简体中文**](README_ZH.md)  
+[**🇯🇵 Japanese / 日本語**](README_JP.md)  
+[**🇨🇳 Simplified / 简体中文**](README_ZH.md)  
 [**🇹🇼 🇭🇰 🇲🇴 Traditional / 繁體中文**](README_HANT.md)
 
 ---
