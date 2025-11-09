@@ -151,6 +151,9 @@ class ApplicationState extends ConsumerState<Application> {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
               navigatorKey: globalState.navigatorKey,
+              checkerboardRasterCacheImages: false,
+              checkerboardOffscreenLayers: false,
+              showPerformanceOverlay: false,
               localizationsDelegates: const [
                 AppLocalizations.delegate,
                 GlobalMaterialLocalizations.delegate,
@@ -190,6 +193,8 @@ class ApplicationState extends ConsumerState<Application> {
                   brightness: Brightness.light,
                   primaryColor: themeProps.primaryColor,
                 ),
+                // Reduce animation duration for snappier feel
+                visualDensity: VisualDensity.adaptivePlatformDensity,
               ),
               darkTheme: ThemeData(
                 useMaterial3: true,
@@ -198,6 +203,8 @@ class ApplicationState extends ConsumerState<Application> {
                   brightness: Brightness.dark,
                   primaryColor: themeProps.primaryColor,
                 ).toPureBlack(themeProps.pureBlack),
+                // Reduce animation duration for snappier feel
+                visualDensity: VisualDensity.adaptivePlatformDensity,
               ),
               home: child,
             );
