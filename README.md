@@ -1,8 +1,10 @@
-<div>
+## Other Languages
+[**🇷🇺 Russian / Русский**](README_RU.md)  
+[**🇯🇵 日本語**](README_JP.md)  
+[**🇨🇳 简体中文**](README_ZH.md)  
+[**🇹🇼 繁體中文**](README_HANT.md)  
 
-[**English**](README_EN.md)
-
-</div>
+---
 
 ## FlClashX
 
@@ -10,106 +12,109 @@
 [![Last Version](https://img.shields.io/github/release/pluralplay/FlClashX/all.svg?style=flat-square)](https://github.com/pluralplay/FlClashX/releases/)
 [![License](https://img.shields.io/github/license/pluralplay/FlClashX?style=flat-square)](LICENSE)
 
-[![Channel](https://img.shields.io/badge/Telegram-Chat-blue?style=flat-square&logo=telegram)](https://t.me/FlClashX)
+[![Channel](https://img.shields.io/badge/Telegram-Chat-blue?style=flat-square&logo=telegram)](https://t.me/FlClash)
 
-Форк многоплатформенного прокси-клиента FlClash на основе ClashMeta, простого и удобного в использовании, с открытым исходным кодом и без рекламы.
+A fork of the multi-platform proxy client FlClash based on ClashMeta, simple and easy to use, open source and ad-free.
 
-Десктопный вид:
+on Desktop:
 
 <p style="text-align: center;">
     <img alt="desktop" src="snapshots/desktop.gif">
 </p>
 
-Мобильный вид:
+on Mobile:
 
 <p style="text-align: center;">
     <img alt="mobile" src="snapshots/mobile.gif">
 </p>
 
-## Добавленный функционал
+## Added Functionality:
 
-🛠️ Исправлены стандартные настройки: режим поиска процессов вкл, режим tun вкл, режим системного прокси выкл, режим отображения списка прокси list, изменена работа камеры при добавлении подписки через QR.
+🛠️ Fixed default settings: process search mode on, TUN mode on, system proxy mode off, proxy list display mode set to 'list', changed camera behavior when adding a subscription via QR.
 
-🇷🇺 Добавлен русский язык в установщик и переработана локаль в приложении
+🇷🇺 Added Russian language to the installer and redesigned the localization in the application.
 
-✈️ Передача HWID в панель (Работает только с <a href="https://github.com/remnawave/panel">Remnawave</a>)
+✈️ Transmit HWID to the panel (Works only with <a href="">Remnawave</a>).
 
-💻 Добавлен новый виджет "Анонсы". Передаёт анонсы из панели в виджет. (Работает только с <a href="https://github.com/remnawave/panel">Remnawave</a>)
+💻 Added a new "Announcements" widget. It transmits announcements from the panel to the widget. (Works only with <a href="">Remnawave</a>).
 
-📺 Оптимизация управления на Android TV
+📺 Optimized controls for Android TV.
 
-- добавлена кнопка "Вставить" для меню добавления подписки по ссылке
-- добавлена кнопка выбора профиля
-- добавлена передача профиля с мобильного приложения через QR-код
+- Added a "Paste" button to the menu for adding a subscription via a link.
 
-🪪 Переработана карточка профиля:
+- Added a profile selection button.
 
-- Используется индикатор объёма трафика с изменением цвета (не отображается, если трафик неограничен).
-- Отображается дата окончания подписки (если год — 2099, выводится «Ваша подписка вечная»).
-- Добавлена новая кнопка «Поддержка» в профиле, которая подтягивает supportUrl с панели.
-- Параметр autoupdateinterval для профиля теперь корректно передаётся с панели.
+- Added the ability to transfer a profile from the mobile app via a QR code.
 
-🪪 Добавлен новый виджет "Мета-Инфо". Передаёт параметры с подписки на виджет. Сколько трафика осталось, когда заканчивается подписка, имя профиля, и крупно отображает сколько дней до окончании подписки осталось.
+🪪 Redesigned the profile card:
 
-🌐 Добавлен парсинг кастомных хедеров со страницы подписки:
+- Used traffic amount with a color-changing traffic bar (not displayed if traffic is unlimited).
 
-- flclashx-widgets: выстраивает виджеты в порядке, полученным с подписки
+- Subscription expiration date (if the year is 2099, it displays "permanent subscription").
 
-|       Значение       | Виджет                                                      |
-| :------------------: | ----------------------------------------------------------- |
-|      `announce`      | Анонсы                                                      |
-|    `networkSpeed`    | Скорость сети                                               |
-|   `outboundModeV2`   | Режим работы прокси (новый вид)                             |
-|    `outboundMode`    | Режим работы прокси (старый вид)                            |
-|    `trafficUsage`    | Использование трафика                                       |
-|  `networkDetection`  | Определение локации и IP                                    |
-|     `tunButton`      | Кнопка TUN (только Desktop)                                 |
-|     `vpnButton`      | Кнопка VPN (только Android)                                 |
-| `systemProxyButton`  | Кнопка системного прокси (только Desktop)                   |
-|     `intranetIp`     | Локальный IP-адрес                                          |
-|     `memoryInfo`     | Использование памяти                                        |
-|      `metainfo`      | Информация о подписке                                       |
-| `changeServerButton` | Кнопка смены сервера                                        |
-|    `serviceInfo`     | Информация о сервисе (только с header flclashx-servicename) |
+- Added a new "Support" button in the profile, which pulls the supportUrl from the panel.
 
-Использование:
+- The autoupdateinterval for the profile is now correctly transmitted from the panel.
+
+🌐 Added parsing of custom headers from the subscription page:
+
+- flclashx-widgets: arranges widgets in the order received from the subscription.
+
+  |        Value         | Name widget                                                 |
+  | :------------------: | ----------------------------------------------------------- |
+  |      `announce`      | Announce Badge                                              |
+  |    `networkSpeed`    | Network speed                                               |
+  |   `outboundModeV2`   | Proxy mode (new type)                                       |
+  |    `outboundMode`    | Proxy mode (old type)                                       |
+  |    `trafficUsage`    | Traffic usage                                               |
+  |  `networkDetection`  | Determining location and IP                                 |
+  |     `tunButton`      | TUN button (Desktop only)                                   |
+  |     `vpnButton`      | VPN button (Android only)                                   |
+  | `systemProxyButton`  | System Proxy Button (Desktop only)                          |
+  |     `intranetIp`     | Local IP-Address                                            |
+  |     `memoryInfo`     | Memory usage                                                |
+  |      `metainfo`      | Profile information                                         |
+  | `changeServerButton` | Change server button                                        |
+  |    `serviceInfo`     | Service information (only with header flclashx-servicename) |
+
+Usage:
 
 ```bash
-flclashx-widgets: announce,metainfo,outboundModeV2,networkDetection
+    flclashx-widgets: announce,metainfo,outboundModeV2,networkDetection
 ```
 
-- flclashx-view: настраивает вид страницы прокси, полученным с подписки
+- flclashx-view: Configures the appearance of the proxy page obtained from the subscription.
 
-| Значение | Описание                            | Возможные значения                |
-| :------: | ----------------------------------- | --------------------------------- |
-|  `type`  | Режим отображения                   | `list`,`tab`                      |
-|  `sort`  | Тип сортировки                      | `none`,`delay`,`name`             |
-| `layout` | Макет                               | `loose`,`standard`,`tight`        |
-|  `icon`  | Стиль иконок (для list-отображения) | `none`,`standard`,`icon`          |
-|  `card`  | Размер карточки                     | `expand`,`shrink`,`min`,`oneline` |
+|  Value   | Description                   | Possible values                   |
+| :------: | ----------------------------- | --------------------------------- |
+|  `type`  | Display mode                  | `list`,`tab`                      |
+|  `sort`  | Sorting type                  | `none`,`delay`,`name`             |
+| `layout` | Layout                        | `loose`,`standard`,`tight`        |
+|  `icon`  | Icon style (for list display) | `none`,`standard`,`icon`          |
+|  `card`  | Card size                     | `expand`,`shrink`,`min`,`oneline` |
 
-Использование:
+Usage:
 
 ```bash
     flclashx-view: type:list; sort:delay; layout:tight; icon:standard; card:shrink
 ```
 
-- flclashx-custom: управляет состоянием применения стилей для Dashboard и ProxyView
+- flclashx-custom: Controls the application of styles for Dashboard and ProxyView.
 
-| Значение | Описание                                                |
-| :------: | ------------------------------------------------------- |
-|  `add`   | Стили применяются только при первом добавлении подписки |
-| `update` | Стили применяются каждый раз при обновлении подписки    |
+|  Value   | Description                                                  |
+| :------: | ------------------------------------------------------------ |
+|  `add`   | Styles are applied only when the subscription is first added |
+| `update` | Styles are applied every time the subscription is updated    |
 
-Использование:
+Usage:
 
 ```bash
     flclashx-custom: update
 ```
 
-- flclashx-denywidgets: при true - запрещает редактировать страницу Dashboard. Имеет значение true/false.
+- flclashx-denywidgets: When set to true, editing the Dashboard page is disabled. Accepts true/false.
 
-Использование:
+Usage:
 
 ```bash
     flclashx-denywidgets: true
@@ -123,11 +128,11 @@ Usage:
     flclashx-servicename: FlClashX
 ```
 
-## Использование
+## Application Usage
 
 ### Linux
 
-⚠️ Перед использованием убедитесь, что установлены следующие зависимости:
+⚠️ Before use, ensure the following dependencies are installed:
 
 ```bash
  sudo apt-get install libayatana-appindicator3-dev
@@ -136,7 +141,7 @@ Usage:
 
 ### Android
 
-Поддерживаются следующие действия:
+The following actions are supported:
 
 ```bash
  com.follow.clashx.action.START
@@ -146,14 +151,16 @@ Usage:
  com.follow.clashx.action.CHANGE
 ```
 
-## Скачать
+## Download
 
-<a href="https://github.com/pluralplay/FlClashX/releases"><img alt="Get it on GitHub" src="snapshots/get-it-on-github.svg" width="200px"/></a>
+<a href=""><img alt="Get it on GitHub" src="snapshots/get-it-on-github.svg" width="200px"/></a>
 
 ## Star
 
 <p style="text-align: center;">
-Самый простой способ поддержать разработчиков — нажать на звездочку (⭐) в верхней части страницы.<br>
-Если хотите поддержать копеечкой, то можно <a href="https://t.me/tribute/app?startapp=dtyh">сделать это тут.</a></p>
+The easiest way to support the developers is to click the star (⭐) at the top of the page.<br>
+If you want to support with a small donation, you can <a href="">do so here.</a><br>
+THANKS FOR YOU EVERY BIT SUPPORT FOR Developers!
+</p>
 
 **TON USDT:** `UQDSfrJ_k1BdsknhdR_zj4T3Is3OdMylD8PnDJ9mxO35i-TE`
