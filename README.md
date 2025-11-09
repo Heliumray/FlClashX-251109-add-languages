@@ -2,7 +2,7 @@
 [**🇷🇺 Russian / Русский**](README_RU.md)  
 [**🇯🇵 日本語**](README_JP.md)  
 [**🇨🇳 简体中文**](README_ZH.md)  
-[**🇹🇼 繁體中文**](README_HANT.md)  
+[**🇹🇼 🇭🇰 🇲🇴 Traditional / 繁體中文**](README_HANT.md)
 
 ---
 
