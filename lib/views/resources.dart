@@ -282,15 +282,12 @@ class _GeoDataListItemState extends State<GeoDataListItem> {
   }
 
   Future<String?> _getActiveGeoUrl(WidgetRef ref) async {
-    // Пробуем получить URL из текущего активного профиля
     try {
-      // Используем watch чтобы перестраивать виджет при смене профиля
       final currentProfileId = ref.watch(currentProfileIdProvider);
       if (currentProfileId != null) {
         final profileConfig = await globalState.getProfileConfig(currentProfileId);
         final geoXUrl = profileConfig["geox-url"];
         if (geoXUrl != null && geoXUrl is Map) {
-          // Поддерживаем оба формата ключей
           if (geoItem.key == 'geoip') {
             return geoXUrl['geoip'] ?? geoXUrl['geo-ip'];
           } else if (geoItem.key == 'geosite') {
@@ -301,10 +298,8 @@ class _GeoDataListItemState extends State<GeoDataListItem> {
         }
       }
     } catch (e) {
-      // Если не удалось получить из профиля, используем patchConfig
     }
     
-    // Fallback на patchConfig
     return ref.read(patchClashConfigProvider.select((state) => state.geoXUrl.toJson()[geoItem.key]));
   }
 

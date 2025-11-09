@@ -333,7 +333,7 @@ class _$AppSettingPropsImpl implements _AppSettingProps {
       this.silentLaunch = false,
       this.autoRun = false,
       this.openLogs = false,
-      this.closeConnections = false,
+      this.closeConnections = true,
       this.testUrl = defaultTestUrl,
       this.isAnimateToPage = true,
       this.autoCheckUpdate = false,

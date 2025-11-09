@@ -143,6 +143,21 @@ jobs:
           ls -lh "$DMG_FILE"
           codesign -dvv "$DMG_FILE"
 
+      - name: Rename DMG (remove version)
+        run: |
+          DMG_FILE=$(find ./dist -name "*.dmg" -type f | head -n 1)
+          BASENAME=$(basename "$DMG_FILE")
+          
+          # FlClashX-0.3.0-macos-arm64.dmg -> FlClashX-macos-arm64.dmg
+          NEW_NAME=$(echo "$BASENAME" | sed -E 's/-[0-9]+\.[0-9]+\.[0-9]+(-[^-]+)?-/-/')
+          
+          if [ "$BASENAME" != "$NEW_NAME" ]; then
+            echo "📝 Renaming: $BASENAME -> $NEW_NAME"
+            mv "$DMG_FILE" "./dist/$NEW_NAME"
+          else
+            echo "✅ Filename already correct: $BASENAME"
+          fi
+
       - name: Upload signed artifact
         uses: actions/upload-artifact@v4
         with:
